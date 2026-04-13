@@ -1,6 +1,8 @@
 from pathlib import Path
 import json
 
+from fontTools.ttLib.tables.otTables import AATStateTable
+
 
 def read_data(file_name, field):
 
@@ -33,6 +35,18 @@ def binary_search(number_list, target_number):
         for i, number in range(0, new_list[number_in_middle]):
             if number == target_number:
                 return i
+
+
+def pattern_search(sequence, target_sample):
+    result = {}
+    i = 0
+    for i, sample in enumerate(sequence, i+len(target_sample)):
+        if sample == target_sample:
+            result.append(i)
+        i = i + len(target_sample)
+
+        return result
+
 
 
 
@@ -68,7 +82,13 @@ def main():
     linear_result = linear_search(unordered, target)
     print(linear_result)
 
-#
+    target_sample = "ATA"
+    dna_sequence = "ATGACGGAATATAAGCTAGGTGGTGGCTGGGCAGTCCGCGCTGATAGGGCAAGAGTGCGCGTACCATACCACGCTAAGCCATATAGGGCATCAGTCAGCCTGGCA"
+    print(pattern_search(dna_sequence, target_sample))
+
+target_sample = "ATA"
+dna_sequence = "ATGACGGAATATAAGCTAGGTGGTGGCTGGGCAGTCCGCGCTGATAGGGCAAGAGTGCGCGTACCATACCACGCTAAGCCATATAGGGCATCAGTCAGCCTGGCA"
+print(pattern_search(dna_sequence, target_sample))
 #
 # if __name__ == "__main__":
 #     main()
@@ -88,6 +108,8 @@ end = time.perf_counter()
 
 duration = end - start
 print(f"Měření trvalo {duration:.8f} s")
+
+
 
 
 
