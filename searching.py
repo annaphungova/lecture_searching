@@ -18,6 +18,27 @@ def linear_search(sequence, number):
             linear_result["count"] += 1
     return linear_result
 
+def binary_search(number_list, target_number):
+    new_list = sorted(number_list)
+    middle_index = len(new_list) / 2
+    number_in_middle = new_list[middle_index]
+    if number_in_middle == target_number:
+        i = new_list[number_in_middle]
+        return i
+    if number_in_middle < target_number:
+        for i, number in range(new_list[number_in_middle], len(new_list)):
+            if number == target_number:
+                return i
+    if number_in_middle > target_number:
+        for i, number in range(0, new_list[number_in_middle]):
+            if number == target_number:
+                return i
+
+
+
+
+
+
 
 
 
@@ -51,3 +72,23 @@ def main():
 #
 # if __name__ == "__main__":
 #     main()
+
+import time
+
+numbers = [4, 8, 15, 16, 23, 42, 55, 78, 91, 120]
+target = 78
+
+start = time.perf_counter()
+
+for number in numbers:
+    if number == target:
+        break
+
+end = time.perf_counter()
+
+duration = end - start
+print(f"Měření trvalo {duration:.8f} s")
+
+
+
+
