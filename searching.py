@@ -86,9 +86,7 @@ def main():
     dna_sequence = "ATGACGGAATATAAGCTAGGTGGTGGCTGGGCAGTCCGCGCTGATAGGGCAAGAGTGCGCGTACCATACCACGCTAAGCCATATAGGGCATCAGTCAGCCTGGCA"
     print(pattern_search(dna_sequence, target_sample))
 
-target_sample = "ATA"
-dna_sequence = "ATGACGGAATATAAGCTAGGTGGTGGCTGGGCAGTCCGCGCTGATAGGGCAAGAGTGCGCGTACCATACCACGCTAAGCCATATAGGGCATCAGTCAGCCTGGCA"
-print(pattern_search(dna_sequence, target_sample))
+
 #
 # if __name__ == "__main__":
 #     main()
